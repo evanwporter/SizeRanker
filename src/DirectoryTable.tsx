@@ -16,7 +16,7 @@ interface FileItem {
 }
 
 export const DirectoryTable = () => {
-  const [path, setPath] = useState(".");
+  const [path, setPath] = useState<string>(".");
   const [files, setFiles] = useState<FileItem[]>([]);
   const [selectedRows, setSelectedRows] = useState<string[]>([]);
 

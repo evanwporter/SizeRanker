@@ -48,12 +48,12 @@ fn get_size(path: &PathBuf) -> u64 {
 pub fn scan_directory(path: String) -> Result<Vec<FileItem>, String> {
     let dir_path = PathBuf::from(&path);
     if !dir_path.exists() {
-        return Err("Path does not exist".to_string());
+        return Err(format!("Path does not exist: {}", dir_path.display()));
     }
 
     let dir_path = dir_path
         .canonicalize()
-        .map_err(|_| "Failed to resolve path".to_string())?;
+        .map_err(|_| format!("Failed to resolve path: {}", dir_path.display()))?;
 
     let mut items = Vec::new();
 
